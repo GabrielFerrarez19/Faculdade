@@ -1,0 +1,47 @@
+{
+    "12345678900": {
+        "nome": "Jo\u00c3\u00a3o da Silva",
+        "data_nascimento": "1990-05-15",
+        "email": "joao.silva@example.com"
+    },
+    "98765432111": {
+        "nome": "Maria Oliveira",
+        "data_nascimento": "1985-09-20",
+        "email": "maria.oliveira@example.com"
+    },
+    "11122233344": {
+        "nome": "Carlos Pereira",
+        "data_nascimento": "1978-02-10",
+        "email": "carlos.pereira@example.com"
+    },
+    "55566677788": {
+        "nome": "Ana Costa",
+        "data_nascimento": "1995-07-25",
+        "email": "ana.costa@example.com"
+    },
+    "00000000000": {
+        "nome": "Zero da Silva",
+        "data_nascimento": "1990-05-15",
+        "email": "zero.silva@example.com"
+    },
+    "99988877766": {
+        "nome": "Paulo Souza",
+        "data_nascimento": "2000-11-30",
+        "email": "paulo.souza@example.com"
+    },
+    "11067486623": {
+        "nome": "gabriel",
+        "data_nascimento": "19/02/2006",
+        "email": "gabriel@gmail.com"
+    },
+    "00594366623": {
+        "nome": "Cristiana Ant\u00f4nia sabi ",
+        "data_nascimento": "2021-06-15",
+        "email": "gabriel@gmail.com"
+    },
+    "111111": {
+        "nome": "gabriel",
+        "data_nascimento": "2024-12-13",
+        "email": "gabriel@gmail.com"
+    }
+}

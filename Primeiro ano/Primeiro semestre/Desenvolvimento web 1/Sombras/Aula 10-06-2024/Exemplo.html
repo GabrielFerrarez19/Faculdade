@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            box-shadow: red 10px 0px 0px, blue -10px -5px , green 0px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .borda{
+            text-shadow: forestgreen -5px 5px,red 10px 9px 2px, blue -10px 4px 0px;
+        }
+
+        div .borda{
+            text-shadow: blue 10px 5px 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="borda">Gabriel Ferrarez</h1>
+
+    <div>
+        <h1 class="borda">Gabriel Ferrarez</h1>
+    </div>
+</body>
+</html>

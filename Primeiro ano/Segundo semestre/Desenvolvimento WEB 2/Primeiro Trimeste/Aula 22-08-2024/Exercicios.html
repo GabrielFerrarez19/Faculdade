@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-wrap:nowrap;
+            flex-direction: column;
+        }
+        .MenorQUe {
+            display: flex;
+        }
+        button{
+            padding: 10px;
+            margin: 5px;
+        }
+        input{
+            margin-left: 5px;
+        }
+        label{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="MenorQue">
+            <label for="">Digite um numero</label><br>
+            <input type="text" id="numeroN"><br>
+            <button onclick="(MenorQue())">Enviar numero</button>
+        </div><br>
+        <div class="NotaAluno">
+            <label for="">Digite a nota do aluno</label><br>
+            <input type="text" id="NotaAluno"><br>
+            <button onclick="(NotaAluno())">Enviar nota</button>
+        </div>
+        <div class="Desconto">
+            <label for="">Digite sua idade</label><br>
+            <input type="text" id="Idade"><br>
+            <button onclick="(VerificaDesconto())">verificar Desconto</button>
+        </div>
+        <div class="DiasDaSemana">
+            <label for="">Digite um numero referente a um dia da semana</label><br>
+            <input type="text" id="Dia"><br>
+            <button onclick="(DiaDaSemana())">Veridicar Dia Da semana </button>
+        </div>
+    </main>
+
+    <script>
+
+        function MenorQue(){
+       var numeroN =  document.getElementById('numeroN');
+
+       var valor = numeroN.value;
+
+       if (valor < 0){
+            alert("Numero digitado menor que 0")
+       }else{
+            alert("Numero digitado maior que 0 ")
+       }
+    }
+
+    function NotaAluno(){
+        var nota = 101;
+        var NotaAluno = document.getElementById("NotaAluno");
+        var nota = NotaAluno.value;
+        while (nota > 100 || nota < 0 || isNaN(nota)){
+
+            nota = prompt("Nota deve ser menor que 100.Digite novamente");
+            nota = parseFloat(nota);
+
+        }
+
+        console.log("Teste3");
+        if (nota >= 90 && nota <= 100){
+            letra = "A";
+            console.log("Teste");
+        }else if ( nota >= 80 && nota <= 89){
+            letra = "B";
+        }else if (nota >= 70 && nota <= 79){
+            letra = "C";
+        }else if (nota >= 60 && nota <= 69){
+            letra = "D";
+        }else{
+            letra = "F";
+        }
+
+        console.log("Teste2");
+        alert("A nota do aluno foi " + letra);
+    }
+
+    function VerificaDesconto(){
+        var input = document.getElementById("Idade")
+        var idade = input.value
+
+        var Desconto
+        if (idade <= 18){
+            Desconto = "20%"
+        }else if (idade > 18 && idade <= 60){
+            Desconto = "10%"
+        }else{
+            Desconto ="0%"
+        }
+
+        alert("Seu desconto e de " + Desconto)
+    }
+
+    function DiaDaSemana(){
+        var input = document.getElementById("Dia");
+        var dia = input.value;
+        dia = parseInt(dia);
+        var DiaDaSEmana;
+
+        switch(dia){
+            case 1:
+                DiaDaSEmana = "Segunda-feira";
+            break
+            case 2:
+                DiaDaSEmana = "Terça-feira";
+            break
+            case 3:
+                DiaDaSEmana = "Quarta-feira";
+            break
+            case 4:
+                DiaDaSEmana = "Quinta-feira";
+            break
+            case 5:
+                DiaDaSEmana = "Sexta-feira";
+            break
+            case 6:
+                DiaDaSEmana = "Sabado";
+            break
+            case 7:
+                DiaDaSEmana = "Domingo";
+            break
+        }
+
+        alert("O seu dia da semana é " + DiaDaSEmana);
+    }
+    </script>
+</body>
+</html>

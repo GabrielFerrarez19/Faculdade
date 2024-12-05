@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 2</title>
+  <style>
+    .button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .btn1 {background-color: #04AA6D;}
+    .btn2 {background-color: #008CBA;}
+    .btn3 {background-color: #f44336;}
+
+  </style>
+</head>
+
+<body>
+  <button id="cor" class="button btn1">Verde</button>
+  <button id="cor" class="button btn2">Azul</button>
+  <button id="cor" class="button btn3">Verde</button>
+
+  <script>
+    document.querySelector(".btn1").addEventListener("click", function() {
+      document.body.style.backgroundColor = getComputedStyle(this).backgroundColor;
+    });
+
+    document.querySelector(".btn2").addEventListener("click", function() {
+      document.body.style.backgroundColor = getComputedStyle(this).backgroundColor;
+    });
+
+    document.querySelector(".btn3 ").addEventListener("click", function() {
+      document.body.style.backgroundColor = getComputedStyle(this).backgroundColor;
+    });
+   
+  </script>
+</body>
+
+</html>

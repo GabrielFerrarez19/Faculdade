@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/logo.png" alt="">
+        </div>
+        <div class="meio_Header">
+            <p>DESENVOLVIMENTO DE SISTEMA WEB PARA CONTROLE E GESTÃO DE <br>
+
+                RELACIONAMENTO AO CLIENTE1</p>
+        </div>
+        <div class="login">
+            <button class="ButtonLogin">
+                <span>Login</span>
+            </button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="carousel">
+            <div class="slide">
+              <h2>RESUMO</h2>
+              <p>O tema abordado neste artigo é algo que hoje em dia muitas empresas apresentam carência em
+                atender, visto que o contato que é feito com o cliente é um dos pilares para que se construa um
+                ambiente favorável para ambas as partes, tanto do prestador de serviços quanto de quem
+                utiliza do mesmo. Um bom relacionamento cria confiança e estabilidade para que a parceria
+                dure por muito tempo e entregue frutos para os dois lados. O objetivo deste trabalho foi
+                desenvolver uma aplicação que mantenha os dados seguros, com facilidade de acesso às
+                informações e prático para ser utilizado no dia a dia, direcionado ao relacionamento com o
+                cliente. A aplicação WEB em questão foi criada no intuito de facilitar e direcionar de maneira
+                organizada os dados que as empresas possuem sobre seus clientes. O conceito de CRM é
+                muito bem abordado dentro desse artigo pelo fato de entender sobre a necessidade real do
+                cliente e trabalhar em soluções para amenizar tais problemas. Com isso também proporciona
+                redução de futuras perdas de clientes e fideliza ainda mais o relacionamento diário. A gestão
+                dos dados é um dos pilares do tema, pois uma empresa que gerencia bem seus dados pode
+                utilizar dos mesmos para tomada de decisões e ações futuras pensando no bem estar da
+                empresa. Para toda estrutura do software foi utilizado o modelo MVC, em que foi aplicado
+                toda praticidade de organização do projeto e com o intuito de diminuir a carga de
+                comunicação entre o back-end e front-end. Para este projeto foi utilizado um estudo de caso,
+                em que foi realizada uma análise sobre as necessidades da empresa e posteriormente foi
+                iniciado o desenvolvimento de uma solução para solucionar as dificuldades identificadas.
+                Como resultado foi obtido uma plataforma em que é possível ter uma diminuição no tempo
+                gasto ao inserir e consultar informações e também que pode auxiliar o usuário a traçar
+                estratégias para melhorar seu relacionamento diário com o cliente.
+                Palavras-chave: CRM, MVC, Gerenciamento de dados, Relacionamento com clientes ,
+                Organização</p>
+            </div>
+            <div class="slide">
+              <h2>1 INTRODUÇÃO</h2>
+              <p>
+                Houve um tempo em que o desenvolvimento de um produto e a venda do mesmo era o foco da maioria das empresas, porém com o passar do tempo foi analisado que o foco principal não deve ser apenas no produto em si, mas também ao cliente e como é possível solucionar suas dificuldades através do contato realizado. O projeto aborda bem o conceito de CRM onde é necessário analisar e entender toda necessidade que um cliente possui em seu cotidiano e a partir disso desenvolver ideias e estratégias que juntas ajudem a solucionar as dificuldades encontradas. Como complementam
+                </p>
+                <p>
+                Ely Fernando do Prado Professor-orientador. Mestre em Ciência da Computação Docente na Libertas – Faculdades Integradas – E-mail: elyprado@libertas.edu.br
+                </p>
+                <p>
+                André Alves Silveira Graduando em Sistemas de Informação pela Libertas – Faculdades Integradas – E-mail: 006141@libertas.edu.br
+                </p>
+                <p>
+                Artigo submetido em 30/06/2023, e apresentado à Libertas – Faculdades Integradas, como parte dos requisitos para obtenção do Título de Bacharel em Sistemas de Informação, em 30/06/2023.
+                </p>
+                <p>
+                Miria, Henrique (2020) colocar produtos no mercado não é suficiente, é preciso se conectar aos consumidores e manter uma relação estreita de confiança com eles. A partir de todos os conceitos sobre como trabalhar em melhorias para o cliente e solucionar seus problemas diários é analisada uma maneira de construir um software que com seus métodos e funções crie maneiras de comunicação inteligente ao consultar os dados inseridos e posteriormente com eles propor melhorias ao cliente.
+                </p>
+                <p>
+                <b>Contexto e motivação</b><br>
+                O cenário atual da indústria de software demonstra que existe uma busca frequente por um controle de gestão de relacionamento ao cliente que seja eficiente e que ajude a trazer resultados positivos para a empresa. De acordo com Sinch (2021) a chave para o sucesso em qualquer negócio reside em construir boas relações e efetivar a fidelização dos consumidores. Ter um bom sistema de atendimento ao cliente é indispensável para o sucesso das empresas, visto que o cliente e suas necessidades são o foco principal para a evolução do produto fornecido. Diante disso é esperado que essa aplicação contribua na facilidade de acesso, armazenamento e consulta dos dados, também que diminua o tempo gasto e que aumente a produtividade do usuário em relação ao seu dia a dia.
+                </p>
+                <p>
+                <b>Objetivos</b><br>
+                O objetivo geral deste projeto é o desenvolvimento de uma plataforma web para gerenciar o relacionamento com o cliente. A partir do objetivo geral foram analisados os seguintes objetivos específicos:
+                <ul>
+                <li>Desenvolvimento da plataforma com foco em manter sempre os dados ordenados e organizados.</li>
+                <li>Desenvolvimento do banco de dados em que foi elaborado um modelo físico com toda estrutura base do banco.</li>
+                <li>Testes de rotas para validação do funcionamento da API de Back-end e do Front-end.</li>
+                <li>Implantação do Sistema em uma infraestrutura em nuvem.</li>
+                </ul>
+                </p>
+                <p>
+                <b>Organização do trabalho</b><br>
+                Na segunda seção do artigo é descrito sobre os referenciais teóricos e fundamentos que foram utilizados para embasamento do projeto. Na terceira seção são descritos os os materiais e métodos utilizados para desenvolvimento da aplicação. Na quarta seção é apresentado o resultado obtido no projeto. Na quinta seção são apresentadas as considerações finais do projeto.
+                </p>
+                
+            </div>
+            <div class="slide">
+              <h2>2 FUNDAMENTOS E TRABALHOS RELACIONADOS</h2>
+              <p>
+                Nesta seção, são apresentados os principais fundamentos e trabalhos relacionados que sustentam a realização deste projeto. Na Seção 2.1 são apresentados os conceitos que fundamentam o estudo sobre o CRM. Já na Seção 2.2 são apresentados os principais trabalhos relacionados.
+                </p>
+                <p>
+                <b>Fundamentos</b><br>
+                Este trabalho tem como fundamento os conceitos relacionados à organização, controle, gestão de dados e CRM. Contudo, o foco foi direcionado principalmente para o CRM e gestão dos dados, aplicados diretamente na plataforma.
+                </p>
+                <p>
+                <b>CRM – Customer Relationship Management</b><br>
+                O CRM – Customer Relationship Management se refere a tecnologia e aos processos que uma organização usa para gerenciar seus contatos, tanto internos quanto externos. A prática desse gerenciamento de contatos com cliente pode ser utilizada para traçar novas ideias, manter o cliente sempre informado de atualizações e estabelecer relações mais sólidas (Pipedrive, 2023).
+                O CRM se compõe em uma mudança de estratégia empresarial em que passa de algo focado apenas no produto para uma estratégia focada no cliente (Cierna e Sujova, 2022). O objetivo do CRM é criar valores para os clientes, entender suas necessidades do dia a dia e oferecer serviços e produtos de valor agregado que forneçam soluções para seus problemas (Estévez, Chalmeta, 2023).
+                </p>
+                <p>
+                <b>Gestão de dados</b><br>
+                Gerenciamento de dados é a prática de coletar, manter e utilizar os dados de uma maneira segura, eficiente e econômica. Um dos principais objetivos é ajudar pessoas e organizações a tratar esses dados e minimizar o tempo de acesso a eles (Oracle, 2023).
+                </p>
+                <p>
+                <b>MVC (Model-View-Controller)</b><br>
+                O modelo de desenvolvimento MVC (Model-View-Controller) é um padrão de arquitetura popular e amplamente utilizado para processos de desenvolvimento de aplicações web em diferentes plataformas (Ahmad, Rana, Maqbool, 2022). O Model é responsável pelo acesso e manipulação dos dados da aplicação, View é responsável pela interface apresentada e o Controller é responsável por conectar o Model e a View, sendo a camada de controle (Guedes, 2020).
+                </p>
+                <p>
+                <b>Trabalhos correlatos</b><br>
+                Foi feita uma análise em alguns trabalhos relacionados ao tema, que abordam assuntos como o relacionamento ao cliente, gestão de dados e coleta de dados.
+                </p>
+                <ul>
+                    <li>
+                        O primeiro trabalho do autor Bandeira (2015) fala sobre o estudo de gestão de marketing para o relacionamento com o cliente e sua importância, em que foi concluído pelo autor que o relacionamento com o cliente é essencial para obtenção e manutenção da vantagem competitiva em um mundo altamente competitivo.
+                    </li>
+                    <li>
+                        O segundo artigo dos autores Alves, Nóbrega e Ataide (2018) mantém um foco geral no tema de controle de dados e seus desafios no dia a dia, em que foi concluído que a grande quantidade de volume de dados atuais trouxe impactos para as empresas. Com isso, é feito um desdobramento em relação a um perfil de um cientista de dados para lidar com a gestão desses dados.
+                    </li>
+                    <li>
+                        O terceiro artigo do autor Barbosa (2022) tem o foco em coleta de dados para que auxilie o usuário no momento de realizar a coleta do leite, de maneira que foi desenvolvido um aplicativo que mantivesse os dados ordenados e organizados para melhor controle dos fornecedores de leite.
+                    </li>
+                </ul>
+                <p>
+                Nestes três artigos nota-se um destaque à importância de manter os dados sobre relacionamento com o cliente armazenados de maneira organizada. Desta forma, pode-se observar a relevância do tema tratado neste trabalho.
+                </p>
+                
+            </div>
+            <div class="slide">
+              <h2>3 MATERIAIS E MÉTODOS</h2>
+              <p><p>
+                Nessa seção serão tratados todos os materiais e métodos utilizados para o desenvolvimento do trabalho.
+                </p>
+                <p>
+                <b>Materiais</b><br>
+                Para atingir os objetivos do projeto foram utilizados os seguintes materiais para o desenvolvimento e validação da plataforma:
+                </p>
+                <ul>
+                    <li>
+                        <b>Node.js:</b> O Node.js é um ambiente de execução que permite a utilização da linguagem JavaScript para desenvolvimento do lado do servidor (server-side). O motivo da escolha dessa linguagem se dá por ser uma linguagem rápida e sintética, que contém um baixo custo de desenvolvimento e uma boa arquitetura, facilitando a criação de projetos menores.
+                    </li>
+                    <li>
+                        <b>Bootstrap:</b> O Bootstrap é um framework front-end que fornece estruturas de CSS para a criação de sites e aplicações responsivas de forma rápida e simples. Foi escolhido para esse projeto pela sua praticidade e funcionalidades que são fornecidas.
+                    </li>
+                    <li>
+                        <b>Visual Studio Code:</b> Editor de texto utilizado para o desenvolvimento do código fonte tanto Back-end quanto Front-end, que possui uma licença gratuita para uso e é uma ferramenta da Microsoft.
+                    </li>
+                    <li>
+                        <b>PostgreSQL:</b> O PostgreSQL é um SGDB (Sistema de Gerenciamento de Banco de Dados), um banco de dados relacional que foca em permitir a implementação da linguagem SQL em estruturas, mantendo padrões de organização de dados.
+                    </li>
+                    <li>
+                        <b>DBeaver:</b> O DBeaver é uma IDE de apoio para facilitar a utilização de banco de dados, permitindo que se mantenham diversos tipos de SGDBs, como o PostgreSQL utilizado neste projeto.
+                    </li>
+                    <li>
+                        <b>Diagrams.net:</b> Para mapeamento e modelagem do banco de dados foi escolhida a plataforma Diagrams.net.
+                    </li>
+                    <li>
+                        <b>Postman:</b> Para testes de rotas internas da API foi utilizado o Postman, no qual foi testado cada processo novo que estava sendo criado.
+                    </li>
+                    <li>
+                        <b>Microsoft Azure:</b> Para hospedagem da página e banco de dados foi utilizada a plataforma da Microsoft Azure, na qual foi criada uma máquina virtual em Linux para armazenar os arquivos da plataforma WEB e o banco de dados acessados por IP. A Microsoft Azure é um ambiente em nuvem que proporciona uma infraestrutura no modelo IAAS (Infrastructure as a Service). Nesta infraestrutura, paga-se pelo uso, de acordo com os recursos utilizados, e permite que se possa dimensionar facilmente toda a infraestrutura do sistema conforme a necessidade.
+                    </li>
+                    <li>
+                        <b>GitHub:</b> O GitHub foi utilizado para armazenar e controlar as versões de todo o código fonte do projeto, além de permitir um acompanhamento da evolução e alterações do projeto, como mostra a Figura 1.
+                    </li>
+                </ul>
+                <div class="imgstext">
+                    <img src="image/img1.png" alt="">
+                </div>
+                <p>
+                <b>Métodos</b><br>
+                A metodologia de pesquisa deste trabalho foi de estudo de caso, em que foi realizada uma análise sobre as necessidades de uma empresa e posteriormente foi desenvolvida uma solução que propõe solucionar as dificuldades encontradas neste caso. Para o desenvolvimento do software foi utilizado o modelo cascata, o qual tem como objetivo o desenvolvimento completo do software e entrega do resultado ao fim do projeto. O modelo cascata é muito utilizado quando os requisitos do sistema são muito bem claros e conhecidos.
+                </p>
+                <p>
+                Na primeira etapa foi feita uma coleta de dados junto ao usuário para verificar o que poderia ser melhorado dentro do processo interno, em que o controle era feito em plataformas distintas (Trello e Google Sheets). Na Figura 2 temos os dados que eram inseridos dentro do Trello, em que o usuário criava cartões e alimentava as informações dos relacionamentos que ele realizava com seus clientes, separados por empresa e usando um controle semanal.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img2.png" alt="">
+                </div>
+                <p>
+                Na Figura 3 é demonstrado um controle de todos os clientes que eram atendidos semanalmente com o propósito de ter uma verificação do que estava pendente para ser feito. Nessa planilha, o usuário mantinha um padrão de cores para a identificação de quem ele já havia feito o contato.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img3.png" alt="">
+                </div>
+                <p>
+                Após a análise de todo o processo que era realizado, foi elaborado um diagrama para demonstrar as funcionalidades esperadas para o sistema que foi desenvolvido. Dentro do diagrama temos 2 atores: o supervisor que faz todo o controle do relacionamento e o cliente final, como é demonstrado na Figura 4.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img4.png" alt="">
+                </div>
+                <p>
+                A partir dos dados coletados foi iniciado o desenvolvimento da plataforma, com o foco em manter todas as informações em apenas um local, acabando com a necessidade de inseri-las em locais diferentes. Para o desenvolvimento da plataforma foi escolhida a linguagem Node.js, que é uma linguagem de fácil entendimento e rápida, com baixo custo de desenvolvimento.
+                </p>
+                <p>
+                Para o banco de dados foi optado pelo uso do PostgreSQL, que é um banco de dados relacional em que foi feito um modelo físico de como ficaria a criação de tabelas e colunas para uso na plataforma, como mostra a Figura 5.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img5.png" alt="">
+                </div>
+                <p>
+                Para testes e validações das rotas da API foi utilizado Postman, em que foi criada uma pasta de organização de todos os métodos e páginas criadas no decorrer do desenvolvimento, como mostra a Figura 6.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img6.png" alt="">
+                </div>
+                <p>
+                Dentro desse projeto foi utilizado o modelo de desenvolvimento MVC, que basicamente é dividido por 3 camadas, sendo elas a camada de interação com o usuário, camada de manipulação de dados e camada de controller, como mostra a Figura 7. Foi aplicado para organização das pastas e arquivos da plataforma, sendo mantido um padrão que facilita a identificação dos arquivos e manutenção no código fonte.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img7.png" alt="">
+                </div>
+                </p>
+            </div>
+            <div class="slide">
+              <h2>4 RESULTADOS</h2>
+              <p><p>
+                Foi desenvolvida a plataforma que possui algumas telas para que o usuário utilize no dia a dia como uma forma mais prática e organizada. Na figura 8 é apresentada a tela inicial da plataforma.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img8.png" alt="">
+                </div>
+                <p>
+                Na primeira tela, o usuário terá um informativo sobre como foram seus últimos relacionamentos realizados, separados por tabelas e classificados de acordo com o que o usuário informou no momento do cadastro. Ele terá as classificações: Ótimo, Regular, Ruim e Sem retorno. Com isso, também é informado na tela o número do ticket, empresa atendida e o tipo do relacionamento.
+                </p>
+                <p>
+                O intuito principal dessa tela é informar para o usuário de maneira simples tudo que aconteceu em seus últimos contatos. Com essas informações, o mesmo poderá traçar planos de melhorias sobre seu relacionamento com o cliente.
+                </p>
+                <p>
+                Já na figura 9 é apresentada a tela de listagem de relacionamentos em que o usuário terá todos os relacionamentos que foram registrados.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img9.png" alt="">
+                </div>
+                <p>
+                Na página de listagem de relacionamentos, ficará registrado todos os relacionamentos que o usuário realizou com seus clientes de maneira geral, com uma opção de cadastrar um novo relacionamento ou alterar um relacionamento já criado.
+                </p>
+                <p>
+                Passando para a parte de cadastros, na Figura 10 é demonstrado um simples campo de formulário em que o usuário irá preencher todos os dados que forem necessários em relação ao seu atendimento.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img10.png" alt="">
+                </div>
+                <p>
+                Na Figura 11 é apresentado o menu lateral em que o supervisor do setor poderá navegar entre as páginas que o sistema possui, cada item de pesquisa possui seu ícone. O menu também é intuitivo, visto que a ordem de apresentação das opções de navegação segue a ordem de criação de cada elemento, em que primeiramente é realizado o cadastro de pessoas, logo depois o de empresas e finalizando com o relacionamento.
+                </p>
+                <div class="imgstext">
+                    <img src="image/img11.png" alt="">
+                </div>
+            </p>
+            </div>
+            <div class="slide">
+                <h2>5 CONSIDERAÇÕES FINAIS</h2>
+                    <p>
+                        Em relação a tudo que foi apresentado no artigo, foi identificado que os dados estavam sendo tratados de maneira desorganizada e sem um fluxo de controle sobre essas informações, utilizando mais de uma plataforma e dificultando o acesso a elas. Visto isso dentro da plataforma criada é identificado o contrário do cenário anterior, em que o usuário tem suas informações principais centralizadas em sua página inicial facilitando estratégias que podem ser tomadas, a parte de cadastro e consultas simples e prática auxilia no tempo gasto com os dados inseridos e a busca deles posteriormente, em que o usuário não precisa navegar de uma plataforma para a outra para identificar quais contatos foram realizados e qual a situação de cada um.
+                    </p>
+                    <p>
+                        Para projetos futuros busca-se inserir relatórios na plataforma em que o usuário poderá verificar dentro de um período todos os contatos que foram feitos, também criar um modelo de histórico de tickets que ao iniciar o cadastro de um novo relacionamento o usuário ter uma opção de visualizar os 3 últimos contatos feitos, a fim de elaborar estratégias e ter uma facilidade de acesso às informações no momento do contato, e por fim ter uma opção de envio de e-mail contendo uma classificação de atendimento por estrelas que o cliente realizaria após o contato feito.
+                    </p>                  
+            </div>
+            <div class="slide">
+                <h2>REFERÊNCIAS</h2>
+                <p>
+                    AHMAD, RANA, MAQBOOL. Uma estrutura orientada a modelos para desenvolvimento de aplicativos baseados em MVC (WEB)
+                    Disponível em: <a href="https://link.springer.com/article/10.1007/s13369-021-06087-4">https://link.springer.com/article/10.1007/s13369-021-06087-4</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    ALURA. Bootstrap: O que é, documentação, como e quando usar
+                    Disponível em: <a href="https://www.alura.com.br/artigos/bootstrap#:~:text=Bootstrap%20%C3%A9%20um%20framework%20front,dispositivos%20m%C3%B3veis%20da%20mesma%20forma">https://www.alura.com.br/artigos/bootstrap#:~:text=Bootstrap%20%C3%A9%20um%20framework%20front,dispositivos%20m%C3%B3veis%20da%20mesma%20forma</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    ALURA. Método kanban: O que é, principais conceitos e sua função no dia a dia da agilidade. 
+                    Disponível em: <a href="https://www.alura.com.br/artigos/metodo-kanban?gclid=Cj0KCQiAsdKbBhDHARIsANJ6-jdEesjknMSlNIZq_KdlCtHreWjmGOF6CucG2tePqID_PJmRmdqunLQaAu6yEALw_wcB">https://www.alura.com.br/artigos/metodo-kanban?gclid=Cj0KCQiAsdKbBhDHARIsANJ6-jdEesjknMSlNIZq_KdlCtHreWjmGOF6CucG2tePqID_PJmRmdqunLQaAu6yEALw_wcB</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    ALVES, NÓBREGA, ATAIDE. Desafios da gestão de dados na era do big data.
+                    Disponível em: <a href="https://periodicos.ufpb.br/index.php/itec/article/view/40538">https://periodicos.ufpb.br/index.php/itec/article/view/40538</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    BANDEIRA. Um estudo sobre o uso de ferramentas de gestão do marketing de relacionamento com o cliente.
+                    Disponível em: <a href="https://www.redalyc.org/pdf/4717/471747058005.pdf">https://www.redalyc.org/pdf/4717/471747058005.pdf</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    BARBOSA. Desenvolvimento de um aplicativo para coleta de dados dos fornecedores de leite de uma indústria.
+                    Disponível em: Libertas Faculdades Integradas Desenvolvido em: 2022. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    CIERNA, SUJOVÁ. Gestão Diferenciada do Relacionamento com o Cliente - Uma Ferramenta para Aumentar a Competitividade Empresarial.
+                    Disponível em: <a href="https://sciendo.com/article/10.2478/mspe-2022-0020">https://sciendo.com/article/10.2478/mspe-2022-0020</a>. Acesso em 22 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    CONTEIGE. Node.js - vantagens e desvantagens.
+                    Disponível em: <a href="https://conteige.cloud/node-js-vantagens-e-desvantagens/">https://conteige.cloud/node-js-vantagens-e-desvantagens/</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    ESTÉVEZ, CHALMETA. Gestão sustentável do relacionamento com o cliente.
+                    Disponível em: <a href="https://www.emerald.com/insight/content/doi/10.1108/mip-06-2022-0266/full/html#ref047">https://www.emerald.com/insight/content/doi/10.1108/mip-06-2022-0266/full/html#ref047</a>. Acesso em 22 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    GUEDES. O que é MVC?
+                    Disponível em: <a href="https://www.treinaweb.com.br/blog/o-que-e-mvc#:~:text=O%20MVC%20sugere%20uma%20maneira,camada%20de%20controle%20(controller)">https://www.treinaweb.com.br/blog/o-que-e-mvc#:~:text=O%20MVC%20sugere%20uma%20maneira,camada%20de%20controle%20(controller)</a>. Acesso em 22 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    MIRIA, HENRIQUE. A gestão de relacionamento com clientes (CRM) como um importante recurso para o crescimento empresarial
+                    Disponível em: <a href="https://revista.fatectq.edu.br/interfacetecnologica/article/view/780/491">https://revista.fatectq.edu.br/interfacetecnologica/article/view/780/491</a>. Acesso em 22 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    ORACLE. Gestão de dados e suas características. O que é gerenciamento de dados?
+                    Disponível em: <a href="https://www.oracle.com/br/database/what-is-data-management/">https://www.oracle.com/br/database/what-is-data-management/</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    PIPEDRIVE. O que é CRM? O Guia completo.
+                    Disponível em: <a href="https://www.pipedrive.com/pt/blog/o-que-e-crm?utm_source=google&utm_medium=cpc&utm_campaign=BR_PG_NB_CRM&utm_content=CRM&utm_term=o+que+%C3%A9+crm&cid=17933070379&aid=145298002488&tid=aud-472323603057%3Akwd-305257522300&gad=1&gclid=CjwKCAjw3ueiBhBmEiwA4BhspJHuCSdupwKk6owtZlI9ib1XjKEuJPpLnvifebKQQ9dubhQQ9yRwWhoCJ_cQAvD_BwE/">https://www.pipedrive.com/pt/blog/o-que-e-crm?utm_source=google&utm_medium=cpc&utm_campaign=BR_PG_NB_CRM&utm_content=CRM&utm_term=o+que+%C3%A9+crm&cid=17933070379&aid=145298002488&tid=aud-472323603057%3Akwd-305257522300&gad=1&gclid=CjwKCAjw3ueiBhBmEiwA4BhspJHuCSdupwKk6owtZlI9ib1XjKEuJPpLnvifebKQQ9dubhQQ9yRwWhoCJ_cQAvD_BwE/</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    PROXYS. A importância da gestão de relacionamento com o cliente.
+                    Disponível em: <a href="https://proxis.com.br/gestao-de-relacionamento-com-o-cliente/">https://proxis.com.br/gestao-de-relacionamento-com-o-cliente/</a>. Acesso em 22 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    ROCKCONTENT. PostgreSQL: Saiba o que é. para que serve e como instalar
+                    Disponível em: <a href="https://rockcontent.com/br/blog/postgresql/">https://rockcontent.com/br/blog/postgresql/</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    SINCH. Relacionamento com o cliente: tudo sobre o assunto (e mais um pouco)!
+                    Disponível em: <a href="https://www.sinch.com/pt-br/blog/relacionamento-com-o-cliente-tudo-sobre-o-assunto-e-mais-um-pouco/">https://www.sinch.com/pt-br/blog/relacionamento-com-o-cliente-tudo-sobre-o-assunto-e-mais-um-pouco/</a>. Acesso em 15 de maio. 2023.
+                    </p>
+                    
+                    <p>
+                    TECHTARGET. O que é o GitHub?
+                    Disponível em: <a href="https://www.techtarget.com/searchitoperations/definition/GitHub">https://www.techtarget.com/searchitoperations/definition/GitHub</a>. Acesso em 22 de maio. 2023.
+                    </p>
+                    
+            </div>
+          </div>
+          <div class="ButtonCarousel">
+            <button class="prev">Anterior</button>
+            <button class="next">Próximo</button>
+          </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>

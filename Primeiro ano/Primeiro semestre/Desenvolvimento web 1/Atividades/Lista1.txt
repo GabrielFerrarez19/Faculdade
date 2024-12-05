@@ -1,0 +1,50 @@
+1. O DOM (Document Object Model) é uma interface de programação que representa documentos HTML, XML ou XHTML como uma árvore de objetos em memória. Ele permite que os desenvolvedores acessem, manipulem e modifiquem dinamicamente elementos e conteúdos de uma página web, facilitando a criação de interfaces interativas e dinâmicas.
+
+2. Seletores CSS são padrões de texto usados para selecionar e estilizar elementos HTML em uma página da web. Suas funções incluem aplicar estilos visuais, reutilizar estilos, especificar estilos, garantir responsividade e permitir seleção dinâmica de elementos. São essenciais para controlar eficientemente o layout e o design de uma página web.
+
+3. Seletores de Tipo: Selecionam elementos com base em seu tipo.
+Exemplo:p {
+    color: blue;
+}
+
+Seletores de Classe: Selecionam elementos com base em sua classe atribuída.
+Exemplo:.destaque {
+    font-weight: bold;
+}
+
+Pseudoclasses: Selecionam elementos em estados específicos, como :hover, :focus e :active.
+Exemplo:a:hover {
+    color: red;
+}
+
+4. Elementos de nível de bloco ocupam toda a largura disponível, começam em uma nova linha e são usados para organizar o layout da página. Exemplos incluem <div>, <p>, <h1> - <h6>. Elementos inline ocupam apenas o espaço necessário, não iniciam uma nova linha e são usados para estilizar partes específicas do conteúdo. Exemplos incluem <span>, <a>, <strong>, <em>.
+
+5. Os principais esquemas de posicionamento CSS são: Estático, Relativo, Absoluto, Fixo, Grid e Flexbox.
+
+6. Estático: Posicionamento padrão, seguindo o fluxo normal do documento.
+Relativo: Posicionamento em relação à sua posição original, permitindo ajustes com top, bottom, left e right.
+Absoluto: Removido do fluxo normal, posicionado em relação ao seu ancestral mais próximo com posicionamento relativo, absoluto ou fixo.
+Fixo: Posicionado em relação à janela do navegador, mantendo-se fixo na tela enquanto a página é rolada.
+Grid: Divide o layout em linhas e colunas, oferecendo controle preciso sobre o posicionamento dos elementos.
+Flexbox: Cria layouts flexíveis e responsivos, ajustando os elementos dinamicamente ao tamanho da tela e ao conteúdo.
+
+7. O viewport é a área visível de uma página da web em um navegador. Nos posicionamentos CSS, é crucial para o design responsivo, pois determina como os estilos são aplicados com base nas características do dispositivo, como largura, altura e orientação. É usado em media queries, unidades de medida relativas e posicionamento responsivo para garantir que o layout se ajuste dinamicamente ao tamanho da tela.
+
+8. O z-index é uma propriedade CSS que controla a ordem de empilhamento dos elementos em relação ao eixo Z. Ele determina qual elemento deve aparecer na frente de outros quando se sobrepõem no layout. Essa propriedade é usada para gerenciar a sobreposição de elementos, como menus dropdown, modais e barras de navegação fixas, garantindo que o layout seja exibido corretamente.
+
+9. O contexto de empilhamento é uma área conceitual em uma página da web onde os elementos HTML são organizados verticalmente, determinando a ordem de renderização visual. Ele é criado quando elementos têm propriedades como `z-index`, posicionamento diferente de `static`, opacidade menor que `1`, entre outros. Isso controla como os elementos são empilhados e sobrepostos uns aos outros, afetando a apresentação visual da página.
+
+10. Largura fixa: Definida em pixels, oferece consistência de design, mas pode não se adaptar bem a diferentes dispositivos.
+Líquido: Definido em porcentagens, oferece adaptação a diferentes tamanhos de tela, mas pode perder controle sobre o layout.
+Elástico: Usando unidades relativas como ems, adapta-se a diferentes tamanhos de fonte, mas pode resultar em layouts imprevisíveis.
+Híbrido: Combina elementos fixos e líquidos, oferecendo um equilíbrio entre controle de design e adaptabilidade.
+Responsivo: Usa media queries para adaptar o layout a diferentes dispositivos, oferecendo excelente adaptabilidade, mas pode exigir mais tempo de desenvolvimento.
+
+
+
+
+
+
+
+
+

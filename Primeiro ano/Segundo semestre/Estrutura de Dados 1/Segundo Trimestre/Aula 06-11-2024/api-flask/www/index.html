@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .soma{
+            padding: 20px;
+        }
+        .Consulta{
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #consultar{
+            width: 100px;
+        }
+        textarea{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="soma">
+            <button onclick="getDados()">Chamar endpoint FLASK</button>
+            <span id="saida"></span>
+        </div>
+
+        <div class="Consulta">
+            <div class="form">
+                <form action="" method="GET">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf">
+                </form>
+                <div>
+                    <button id="consultar" onclick="bucaCliente()">Consultar</button>
+                </div>
+            </div>
+            <div>
+                <p><strong>Nome: </strong><span id="nome"></span></p>
+                <p><strong>Data de Nascimento: </strong><span id="nasc"></span></p>
+                <p><strong>E-mail: </strong><span id="email"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

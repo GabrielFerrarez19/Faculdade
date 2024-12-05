@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Dados do usuario</h2>
+
+    <table id="tabela-dados" class="table table-dark">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Idade</td>
+                <td>Profissão</td>
+            </tr>
+        </thead>
+        <tbody id="corpo-tabela">
+
+        </tbody>
+    </table>
+    <script>
+        const usuarios = [
+            {nome: 'Maria', idade: 25, profissao: 'Médica'},
+            {nome: 'Carlos', idade: 40, profissao: 'Professor'},
+            {nome: 'Ana', idade: 32, profissao: 'Advogada'},
+            {nome: 'Pedro', idade: 28, profissao: 'Designer'},
+        ];
+
+        const corpoTabela = document.getElementById("corpo-tabela");
+
+        for (let i = 0; i < usuarios.length; i++){
+            const usuario = usuarios[i];
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+            <td> ${usuario.nome}</td>
+            <td> ${usuario.idade}</td>
+            <td> ${usuario.profissao}</td>
+            `;
+            corpoTabela.appendChild(tr)
+
+        }
+    </script>
+</body>
+</html>

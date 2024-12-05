@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Digite a primeira nota:</label>
+    <input id="nota1" type="number"></Input>
+    <label for="">Digite a primeira segunda:</label>
+    <Input id="nota2" type="number"></Input>
+    <label for="">Digite a primeira terceira:</label>
+    <Input id="nota3" type="number"> </Input>
+
+    <button onclick="mediaAluno()">calcula media</button>
+
+    <script>
+
+        function mediaAluno(){
+            inputnota1 = document.getElementById("nota1");
+            nota1 = inputnota1.value;
+            nota1 = parseInt(nota1);
+            inputnota2 = document.getElementById("nota2");
+            nota2 = inputnota2.value;
+            nota2 = parseInt(nota2);
+            inputnota3 = document.getElementById("nota3");
+            nota3 = inputnota3.value;
+            nota3 = parseInt(nota3);
+
+            console.log(nota1);
+            console.log(nota2);
+            console.log(nota3);
+            somaNotas = (nota1 + nota2 + nota3);
+            mediaNotas = somaNotas/3;
+
+            console.log(mediaNotas);
+            alert("A media das todas é: " + mediaNotas);
+        }
+
+    </script>
+</body>
+</html>

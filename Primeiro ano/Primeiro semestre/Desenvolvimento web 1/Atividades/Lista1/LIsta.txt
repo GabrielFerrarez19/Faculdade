@@ -1,0 +1,148 @@
+1-HTML significa HyperText Markup Language.
+2-Uma linguagem de marcação é uma linguagem de computador que utiliza marcações para definir elementos dentro de um documento, indicando como esses elementos devem ser apresentados ou estruturados. Essas marcações são interpretadas por programas que entendem a linguagem de marcação, como navegadores web, para exibir o conteúdo de maneira apropriada.
+3-Quando um navegador acessa um arquivo HTML, ele interpreta as marcações HTML presentes no arquivo para renderizar e exibir o conteúdo da página web conforme especificado no código HTML. O navegador interpreta as tags HTML e seus atributos para determinar a estrutura e o estilo da página.
+4-Um ambiente de desenvolvimento é um conjunto de ferramentas, recursos e configurações que facilitam o desenvolvimento de software. Isso inclui editores de texto ou IDEs (Integrated Development Environments), compiladores, depuradores, controladores de versão, entre outros. A função principal de um ambiente de desenvolvimento é fornecer aos desenvolvedores todas as ferramentas necessárias para escrever, testar, depurar e implantar seu código de maneira eficiente.
+5-Sintaxe refere-se à estrutura e às regras gramaticais de uma linguagem de programação, como a forma como os elementos do código são organizados e combinados para formar instruções válidas. Semântica, por outro lado, refere-se ao significado ou interpretação dos elementos do código, ou seja, o que esses elementos representam ou fazem em relação ao contexto da aplicação. Em desenvolvimento web, por exemplo, a sintaxe HTML refere-se à maneira como as tags e atributos são escritos, enquanto a semântica HTML se concentra no significado e propósito dessas tags e atributos em relação ao conteúdo da página.
+6-Uma TAG HTML é um elemento fundamental de marcação em um documento HTML que define a estrutura e o conteúdo da página web. As tags são usadas para envolver e identificar diferentes partes do conteúdo, como texto, imagens, links, etc.
+7-Em HTML, uma TAG é um elemento de marcação que define uma parte específica do conteúdo. Um ATRIBUTO é uma propriedade que é aplicada a uma tag para fornecer informações adicionais sobre ela. Um VALOR é o conteúdo específico atribuído a um atributo. Por exemplo:
+<tag atributo="valor">Conteúdo</tag>
+Neste exemplo, <tag> é a TAG, "atributo" é o ATRIBUTO e "valor" é o VALOR atribuído a esse atributo.
+8.-A linha <!DOCTYPE html> é usada para declarar o tipo de documento e a versão do HTML utilizada no arquivo. Essa declaração é necessária para garantir que o navegador interprete corretamente o código HTML. No caso, <!DOCTYPE html> declara que o documento é escrito em HTML5.
+9-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título da Página</title>
+</head>
+<body>
+    <!-- Conteúdo da Página -->
+</body>
+</html>
+10-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Celulares</title>
+</head>
+<body>
+    <h1>Aparelhos Celulares</h1>
+    <ul>
+        <li>iPhone</li>
+        <li>Samsung Galaxy</li>
+        <li>Google Pixel</li>
+        <li>OnePlus</li>
+        <li>Xiaomi Mi</li>
+    </ul>
+</body>
+</html>
+11-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título e Parágrafo</title>
+</head>
+<body>
+    <h1>Título da Página</h1>
+    <p>Este é um parágrafo de exemplo.</p>
+</body>
+</html>
+12-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem de um Carro</title>
+</head>
+<body>
+    <h1>Meu Carro Favorito</h1>
+    <img src="caminho/para/imagem-do-carro.jpg" alt="Carro">
+</body>
+</html>
+13-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Navegação</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
+14-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <ol>
+        <li><a href="https://pt.wikipedia.org/wiki/Produto1">Produto 1</a></li>
+        <li><a href="https://pt.wikipedia.org/wiki/Produto2">Produto 2</a></li>
+        <li><a href="https://pt.wikipedia.org/wiki/Produto3">Produto 3</a></li>
+        <li><a href="https://pt.wikipedia.org/wiki/Produto4">Produto 4</a></li>
+        <li><a href="https://pt.wikipedia.org/wiki/Produto5">Produto 5</a></li>
+    </ol>
+</body>
+</html
+15-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissional de TI</title>
+</head>
+<body>
+    <h1>Profissional de TI</h1>
+
+    <h2>Introdução</h2>
+
+    <p>O mundo da Tecnologia da Informação (TI) é vasto e dinâmico, e os profissionais que atuam nessa área desempenham um papel fundamental na sociedade moderna. Este texto explora o que significa ser um Profissional de TI e as diversas responsabilidades e habilidades necessárias para ter sucesso nesta carreira emocionante.</p>
+
+    <hr>
+
+    <h3>O que é um Profissional de TI?</h3>
+
+    <p>Um Profissional de TI é alguém dedicado a projetar, desenvolver, implementar e manter sistemas de informação e tecnologia em uma variedade de ambientes, desde empresas e organizações governamentais até instituições de ensino e saúde. Esses profissionais são responsáveis por garantir que os sistemas de computador e redes estejam funcionando de maneira eficiente e segura para atender às necessidades dos usuários.</p>
+
+    <hr>
+
+    <h4>Responsabilidades e Habilidades</h4>
+
+    <p><strong>Gerenciamento de Redes e Sistemas:</strong> Um Profissional de TI precisa ter conhecimentos sólidos em redes de computadores, sistemas operacionais e segurança cibernética para garantir que as redes e sistemas estejam protegidos contra ameaças externas e internas.</p>
+
+    <p><em>Desenvolvimento de Software:</em> Além disso, muitos Profissionais de TI são especializados no desenvolvimento de software, criando aplicativos e programas personalizados para atender às necessidades específicas de uma organização.</p>
+
+    <p><small>Suporte Técnico:</small> Outra responsabilidade importante é fornecer suporte técnico aos usuários, ajudando-os a resolver problemas com hardware, software e conectividade.</p>
+
+    <hr>
+
+    <h5>Educação e Qualificações</h5>
+
+    <p>Para se tornar um Profissional de TI, é comum obter uma graduação em Ciência da Computação, Engenharia de Software ou áreas relacionadas. Além disso, muitos profissionais buscam certificações adicionais em áreas específicas, como segurança cibernética, redes ou desenvolvimento de software, para aprimorar suas habilidades e se manterem atualizados com as últimas tecnologias e práticas da indústria.</p>
+
+    <hr>
+
+    <h6>Conclusão</h6>
+
+    <p>Os Profissionais de TI desempenham um papel crucial na economia digital de hoje, capacitando empresas e organizações a utilizar a tecnologia de forma eficaz para alcançar seus objetivos. Com habilidades em constante evolução e uma compreensão profunda dos sistemas de informação, esses profissionais estão na vanguarda da inovação tecnológica e são essenciais para impulsionar o progresso em todas as áreas da sociedade.</p>
+</body>
+</html>
