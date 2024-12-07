@@ -91,5 +91,4 @@ def dados(cpf):
 if __name__ == "__main__":
      app.run()
 
-     #isso pode ser uma ideia para um cadastro!!!!
     
