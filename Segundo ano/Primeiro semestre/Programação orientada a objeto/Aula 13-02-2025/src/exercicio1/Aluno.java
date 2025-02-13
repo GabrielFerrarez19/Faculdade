@@ -7,6 +7,9 @@ public class Aluno{
 
         void CalculaMedia(){
             media = (nota1 + nota2) / 2;
+            if (media < 70 && media >= 69.8){
+                media = 70;
+            }
         }
     
 }

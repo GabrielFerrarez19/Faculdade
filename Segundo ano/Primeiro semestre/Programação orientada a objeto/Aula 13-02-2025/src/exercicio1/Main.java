@@ -6,8 +6,8 @@ public class Main {
         //instanciar objeto Aluno
         Aluno al  = new Aluno();
         al.nome = "Bill Gates";
-        al.nota1 = 10;
-        al.nota2 = 7;
+        al.nota1 = 70;
+        al.nota2 = 69.7;
         al.CalculaMedia();
         System.out.println("Média: " + al.media);
 
