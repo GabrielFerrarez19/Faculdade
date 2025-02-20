@@ -17,7 +17,7 @@ public class Pessoa {
     //condições OU = ||
 
     void alteraPeso(double novoPeso){
-        if (novoPeso > 0.3 && novoPeso < 3.0){
+        if (novoPeso >= 0.1 && novoPeso < 300){
             peso = novoPeso;
         }else{
             System.out.println("O valor: " + novoPeso + " não é válido.");
@@ -26,7 +26,7 @@ public class Pessoa {
     }
 
     void alteraAltura(double novaAltura){
-        if (novaAltura > 0.1 && novaAltura < 300){
+        if (novaAltura > 0.3 && novaAltura < 3.0){
             altura = novaAltura;
         }else{
             System.out.println("O valor: " + novaAltura + " não é válido.");
