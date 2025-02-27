@@ -7,6 +7,11 @@ public class Veiculo {
     int anoFabricacao;
     double valor;
 
+    public Veiculo(){
+        System.out.println("construindo o objeto Veiculo");
+        anoFabricacao = 2000;
+    }
+
     int idade(){
         if(anoFabricacao <= 2025){
             return 2025-anoFabricacao;
