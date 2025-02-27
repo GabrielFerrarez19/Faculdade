@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Ex1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner li = new Scanner(System.in);
         double soma = 0;
         for (int i = 0; i < 3; i++) {
             System.out.println("Digite a nota i+1 do aluno:");
-            double nota = sc.nextDouble();
+            double nota = li.nextDouble();
             soma += nota;
         }
 

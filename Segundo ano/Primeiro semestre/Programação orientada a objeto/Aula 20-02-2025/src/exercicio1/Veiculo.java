@@ -17,7 +17,11 @@ public class Veiculo {
     }
 
     double valorIPVA(){
-        return valor*0.04;
+        if(anoFabricacao < 1970){
+            return 0;
+        }else{
+            return valor*0.04;
+        }
     }
 
     double valorSeguro(){
