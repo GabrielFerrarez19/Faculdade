@@ -7,14 +7,6 @@ Utilizar Scanner para entrada de dados.
 Utilizar estrutura condicional (if-else ou switch).
 Criar uma classe CalculadoraSimples com um método main.
 */
-/*
-Exercício 2: Verificador de Número Primo
-Crie um programa que leia um número inteiro do usuário e verifique se ele é um número primo.
-Requisitos:
-Utilizar Scanner para entrada de dados.
-Utilizar estrutura de repetição (for ou while).
-Exibir mensagem informando se o número é primo ou não.
-*/
 
 package exercicio1;
 
@@ -28,13 +20,13 @@ public class Exercicio {
         float valor1, valor2, resultado = 0;
         String operacao;
 
-        System.out.println("Digite o primeiro valor:");
+        System.out.print("Digite o primeiro valor:");
         valor1 = li.nextFloat();
 
-        System.out.println("Digite o segundo valor:");
+        System.out.print("Digite o segundo valor:");
         valor2 = li.nextFloat();
 
-        System.out.println("Digite qual operação quer fazer (+, -, *, /):");
+        System.out.print("Digite qual operação quer fazer (+, -, *, /):");
         operacao = li.next();
 
             switch (operacao) {

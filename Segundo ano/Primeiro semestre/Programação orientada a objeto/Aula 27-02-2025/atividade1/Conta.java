@@ -17,8 +17,12 @@ public Conta(){
 void saque(double valor){
     if (valor > saldo+limite){
         System.out.println("Saldo insuficiente");
-    }else{
+    }else if(valor < saldo){
+        saldo = saldo - valor;
+        System.out.println("Saldo restante " + saldo);
+    }else if(valor < saldo + limite){
         saldo = (saldo + limite) - valor;
+        
         System.out.println("Saldo restante " + saldo);
     }
 }

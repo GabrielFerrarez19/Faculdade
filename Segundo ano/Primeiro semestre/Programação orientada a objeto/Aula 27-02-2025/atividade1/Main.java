@@ -9,14 +9,19 @@ public class Main {
     Scanner in = new Scanner(System.in);
     Conta con = new Conta();
 
+    System.out.print("Digite o nome completo do portador da conta: ");
+    con.dono = in.nextLine();
+
+    System.out.println("Olá " + con.dono);
     System.out.println("Seu saldo é " + con.verificaSaldo());
     System.out.println("Seu limite é " + con.verificaLimite());
-    
-    String sair = " ";
 
-    while (sair.equals(" ")) {
+    
+    boolean sair = true;
+
+    while (sair) {
         
-    System.out.println("Digite\n1-para saque \n2-para deposito \n3-para alterar limite \n4-Aumentar limite \n5-Diminuir limite \nDigite 6 para sair");
+    System.out.println("Digite\n1-Saque \n2-Deposito \n3-Alterar limite \n4-Aumentar limite \n5-Diminuir limite \n6-Para verficar seu saldo\n7-Para verificar seu limite\n8-Para sair");
     int operacao = in.nextInt();
 
     if(operacao == 1){
@@ -34,7 +39,11 @@ public class Main {
     }else if(operacao == 5){
         System.out.println("Digite quanto que diminuir do seu limite: ");
     }else if(operacao == 6){
-        sair = "sair";
+        System.out.println("Seu saldo atual é " + con.verificaSaldo());
+    }else if(operacao == 7){
+        System.out.println("Seu limite atual é " + con.verificaLimite());
+    }else if(operacao == 8){
+        sair = false;
     }
     }
 
