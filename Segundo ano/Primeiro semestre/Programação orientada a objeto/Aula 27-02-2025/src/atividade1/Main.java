@@ -12,7 +12,11 @@ public class Main {
     System.out.print("Digite o nome completo do portador da conta: ");
     con.dono = in.nextLine();
 
+    System.out.print("Digite o numero da conta: ");
+    con.numero = in.nextInt();
+
     System.out.println("Olá " + con.dono);
+    System.out.println("Numero da conta: " + con.numero);
     System.out.println("Seu saldo é " + con.verificaSaldo());
     System.out.println("Seu limite é " + con.verificaLimite());
 
