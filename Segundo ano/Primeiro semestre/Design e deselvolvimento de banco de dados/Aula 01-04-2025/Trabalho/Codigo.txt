@@ -1,0 +1,108 @@
+Table Cliente {
+  id_cliente int [pk, increment]
+  nome varchar(255)
+  endereco varchar(255)
+  telefone varchar(20)
+  email varchar(100)
+}
+
+Table Plano {
+  id_plano int [pk, increment]
+  velocidade varchar(50)
+  preco decimal(10,2)
+  nome varchar(100)
+}
+
+Table Contrato {
+  id_cliente int [pk, ref: > Cliente.id_cliente]
+  id_plano int [pk, ref: > Plano.id_plano]
+  sub_total decimal(10,2)
+  preco_unitario decimal(10,2)
+  status varchar(50)
+}
+
+Table Historico_Alteracao_Plano {
+  id_historico int [pk, increment]
+  id_cliente int [ref: > Cliente.id_cliente]
+  id_plano_antigo int [ref: > Plano.id_plano]
+  id_plano_novo int [ref: > Plano.id_plano]
+  justificativa text
+  data_alteracao date
+}
+
+Table Agenda {
+  id_agenda int [pk, increment]
+  id_cliente int [ref: > Cliente.id_cliente]
+  descricao text
+  data_agendamento date
+  hora_agendamento time
+  status_agendamento varchar(50)
+}
+
+Table Fornecedor {
+  id_fornecedor int [pk, increment]
+  nome_fornecedor varchar(255)
+  cnpj varchar(20)
+  telefone varchar(20)
+  email varchar(100)
+  endereco varchar(255)
+}
+
+Table Estoque_de_ONUs {
+  id_estoque int [pk, increment]
+  id_produto int
+  quantidade_disponivel int
+  preco_unitario decimal(10,2)
+  status varchar(50)
+  id_fornecedor int [ref: > Fornecedor.id_fornecedor]
+}
+
+Table Estoque_de_Materias {
+  id_estoqueM int [pk, increment]
+  material varchar(255)
+  descricao text
+  quantidade_disponivel int
+  preco_unitario decimal(10,2)
+  status varchar(50)
+  id_fornecedor int [ref: > Fornecedor.id_fornecedor]
+}
+
+Table Chamados {
+  id_chamado int [pk, increment]
+  id_cliente int [ref: > Cliente.id_cliente]
+  id_funcionario int [ref: > Funcionario.id_funcionario]
+  descricao text
+  status varchar(50)
+  data_abertura date
+  data_fechamento date
+}
+
+Table Historico_de_Atendimento {
+  id_atendimento int [pk, increment]
+  id_chamado int [ref: > Chamados.id_chamado]
+  id_funcionario int [ref: > Funcionario.id_funcionario]
+  descricao_atendimento text
+  status_atendimento varchar(50)
+  data_atendimento date
+}
+
+Table Funcionario {
+  id_funcionario int [pk, increment]
+  nome varchar(255)
+  cargo varchar(100)
+  telefone varchar(20)
+  email varchar(100)
+  endereco varchar(255)
+}
+
+Table Configuracao_ONU {
+  id_config int [pk, increment]
+  id_cliente int [ref: > Cliente.id_cliente, unique]
+  p_gateway varchar(50)
+  mac_address varchar(50)
+  serial_ont varchar(50)
+  dns1 varchar(50)
+  dns2 varchar(50)
+  firmware varchar(50)
+  modelo_ont varchar(50)
+}
