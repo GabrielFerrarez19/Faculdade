@@ -1,3 +1,7 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Segundo ano/Primeiro semestre/Estrutura de dados 2/Lista2/lib/gson-2.13.0.jar"
+    ]
 }
