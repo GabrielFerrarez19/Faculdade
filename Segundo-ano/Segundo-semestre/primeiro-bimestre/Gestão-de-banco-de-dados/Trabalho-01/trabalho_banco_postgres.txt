@@ -1,0 +1,77 @@
+Trabalho de Gestão de Banco de Dados - PostgreSQL
+
+1. Criando o banco de dados
+
+CREATE DATABASE empresa_db;
+
+2. Criando usuários e concedendo privilégios
+
+– Criar um usuário CREATE USER usuario_app WITH PASSWORD ‘senha123’;
+
+– Dar todos os privilégios no banco GRANT ALL PRIVILEGES ON DATABASE
+empresa_db TO usuario_app;
+
+3. Criando as tabelas (mínimo 6 tabelas)
+
+– Tabela de clientes CREATE TABLE clientes ( id_cliente SERIAL PRIMARY
+KEY, nome VARCHAR(100) NOT NULL, email VARCHAR(100) UNIQUE NOT NULL,
+telefone VARCHAR(20), endereco TEXT );
+
+– Tabela de fornecedores CREATE TABLE fornecedores ( id_fornecedor
+SERIAL PRIMARY KEY, nome VARCHAR(100) NOT NULL, cnpj VARCHAR(18) UNIQUE
+NOT NULL, telefone VARCHAR(20), endereco TEXT );
+
+– Tabela de categorias CREATE TABLE categorias ( id_categoria SERIAL
+PRIMARY KEY, nome VARCHAR(50) NOT NULL );
+
+– Tabela de produtos CREATE TABLE produtos ( id_produto SERIAL PRIMARY
+KEY, nome VARCHAR(100) NOT NULL, preco NUMERIC(10,2) NOT NULL, estoque
+INT DEFAULT 0, id_categoria INT REFERENCES categorias(id_categoria),
+id_fornecedor INT REFERENCES fornecedores(id_fornecedor) );
+
+– Tabela de vendas CREATE TABLE vendas ( id_venda SERIAL PRIMARY KEY,
+id_cliente INT REFERENCES clientes(id_cliente), data_venda TIMESTAMP
+DEFAULT CURRENT_TIMESTAMP, valor_total NUMERIC(10,2) );
+
+– Tabela de itens da venda CREATE TABLE itens_venda ( id_item SERIAL
+PRIMARY KEY, id_venda INT REFERENCES vendas(id_venda) ON DELETE CASCADE,
+id_produto INT REFERENCES produtos(id_produto), quantidade INT NOT NULL,
+preco_unitario NUMERIC(10,2) NOT NULL );
+
+4. Inserindo registros
+
+– Clientes INSERT INTO clientes (nome, email, telefone, endereco) VALUES
+(‘João Silva’, ‘joao@email.com’, ‘11999999999’, ‘Rua A, 123’), (‘Maria
+Souza’, ‘maria@email.com’, ‘11888888888’, ‘Rua B, 456’);
+
+– Fornecedores INSERT INTO fornecedores (nome, cnpj, telefone, endereco)
+VALUES (‘Fornecedor A’, ‘12.345.678/0001-99’, ‘1133333333’, ‘Av Central,
+1000’), (‘Fornecedor B’, ‘98.765.432/0001-11’, ‘1144444444’, ‘Av
+Secundária, 2000’);
+
+– Categorias INSERT INTO categorias (nome) VALUES (‘Eletrônicos’),
+(‘Roupas’), (‘Alimentos’);
+
+– Produtos INSERT INTO produtos (nome, preco, estoque, id_categoria,
+id_fornecedor) VALUES (‘Celular’, 1500.00, 50, 1, 1), (‘Camisa’, 80.00,
+200, 2, 2), (‘Arroz 5kg’, 25.00, 100, 3, 2);
+
+– Vendas INSERT INTO vendas (id_cliente, valor_total) VALUES (1,
+1600.00);
+
+– Itens da venda INSERT INTO itens_venda (id_venda, id_produto,
+quantidade, preco_unitario) VALUES (1, 1, 1, 1500.00), (1, 2, 1, 80.00),
+(1, 3, 2, 25.00);
+
+5. Consultas com JOIN
+
+– Trazer informações completas das vendas SELECT v.id_venda, c.nome AS
+cliente, p.nome AS produto, iv.quantidade, iv.preco_unitario,
+v.valor_total, v.data_venda FROM vendas v JOIN clientes c ON
+v.id_cliente = c.id_cliente JOIN itens_venda iv ON v.id_venda =
+iv.id_venda JOIN produtos p ON iv.id_produto = p.id_produto;
+
+– Listar produtos com nome da categoria e fornecedor SELECT p.nome AS
+produto, p.preco, p.estoque, c.nome AS categoria, f.nome AS fornecedor
+FROM produtos p JOIN categorias c ON p.id_categoria = c.id_categoria
+JOIN fornecedores f ON p.id_fornecedor = f.id_fornecedor;
