@@ -7,3 +7,9 @@ from app.schemas.produto import ProdutoCreate, ProdutoOut, ProdutoUpdate
 #criar produto
 def create(db: Session, payload: ProdutoCreate) -> ProdutoOut:
     objeto = Produto(**payload.model_dump())
+    db.add(objeto)
+    db.commit()
+    db.refresh(objeto)
+    return objeto
+
+    
