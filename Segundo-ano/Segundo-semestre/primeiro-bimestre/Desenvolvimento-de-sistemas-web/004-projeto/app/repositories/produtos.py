@@ -5,4 +5,5 @@ from app.models.produto import Produto
 from app.schemas.produto import ProdutoCreate, ProdutoOut, ProdutoUpdate
 
 #criar produto
-def create(db: Session, produto: ProdutoCreate):
+def create(db: Session, payload: ProdutoCreate) -> ProdutoOut:
+    objeto = Produto(**payload.model_dump())
