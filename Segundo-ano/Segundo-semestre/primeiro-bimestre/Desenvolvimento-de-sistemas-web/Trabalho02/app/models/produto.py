@@ -13,3 +13,4 @@ class Produto(Base):
         nullable=False
     )
     categoria = relationship("Categoria", back_populates="produtos")
+

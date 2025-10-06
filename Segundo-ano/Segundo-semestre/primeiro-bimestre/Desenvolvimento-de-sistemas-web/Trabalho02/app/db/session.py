@@ -15,3 +15,4 @@ def set_sqlite_pragma(dbapi_connection, _):
     cursor.close()
 
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+

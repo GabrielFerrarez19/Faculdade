@@ -69,3 +69,4 @@ def delete(db: Session, produto_id: int) -> bool:
     db.delete(produto)
     db.commit()
     return True
+

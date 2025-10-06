@@ -43,3 +43,4 @@ def remover_categoria(categoria_id: int, db: Session = Depends(get_db)):
             detail=f"Categoria com ID {categoria_id} não encontrada"
         )
     return None
+

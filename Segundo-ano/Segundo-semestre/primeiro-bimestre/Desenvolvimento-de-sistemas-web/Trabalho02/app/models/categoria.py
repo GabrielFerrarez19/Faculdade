@@ -10,3 +10,4 @@ class Categoria(Base):
         "Produto", 
         back_populates="categoria",
         cascade="all, delete-orphan")
+

@@ -47,3 +47,4 @@ def remover_produto(produto_id: int, db: Session = Depends(get_db)):
 @rotas.get("/categoria/{categoria_id}", response_model=list[ProdutoSimples])
 def listar_produtos_por_categoria(categoria_id: int, db: Session = Depends(get_db)):
     return repo.get_by_categoria(db, categoria_id)
+

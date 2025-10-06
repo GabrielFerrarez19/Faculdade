@@ -45,3 +45,4 @@ def delete(db: Session, categoria_id: int) -> bool:
     db.delete(categoria)
     db.commit()
     return True
+

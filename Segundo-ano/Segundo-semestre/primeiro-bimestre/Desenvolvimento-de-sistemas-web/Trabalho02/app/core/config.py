@@ -6,3 +6,4 @@ class Settings(BaseSettings):
 
 # objeto settings da classe Settings
 settings = Settings()
+

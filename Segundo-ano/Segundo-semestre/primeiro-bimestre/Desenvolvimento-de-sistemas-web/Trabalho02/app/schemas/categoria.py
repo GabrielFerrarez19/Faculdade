@@ -11,3 +11,4 @@ class CategoriaOut(BaseModel):
     id: int
     nome: str
     model_config = ConfigDict(from_attributes=True)
+
