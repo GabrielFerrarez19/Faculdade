@@ -5,10 +5,8 @@ import models
 import schemas
 from database import engine, get_db
 
-# Criar as tabelas no banco de dados
 models.Base.metadata.create_all(bind=engine)
 
-# Inicializar a aplicação FastAPI
 app = FastAPI(
     title="API REST - Loja",
     description="API para gerenciamento de produtos e categorias",
@@ -19,13 +17,11 @@ app = FastAPI(
 
 @app.get("/categorias/", response_model=List[schemas.Categoria], status_code=status.HTTP_200_OK)
 def listar_categorias(db: Session = Depends(get_db)):
-    """Listar todas as categorias"""
     categorias = db.query(models.Categoria).all()
     return categorias
 
 @app.post("/categorias/", response_model=schemas.Categoria, status_code=status.HTTP_201_CREATED)
 def criar_categoria(categoria: schemas.CategoriaCreate, db: Session = Depends(get_db)):
-    """Criar uma nova categoria"""
     db_categoria = models.Categoria(nome=categoria.nome)
     db.add(db_categoria)
     db.commit()
@@ -34,7 +30,6 @@ def criar_categoria(categoria: schemas.CategoriaCreate, db: Session = Depends(ge
 
 @app.get("/categorias/{categoria_id}", response_model=schemas.Categoria, status_code=status.HTTP_200_OK)
 def buscar_categoria_por_id(categoria_id: int, db: Session = Depends(get_db)):
-    """Buscar categoria por ID"""
     categoria = db.query(models.Categoria).filter(models.Categoria.id == categoria_id).first()
     if not categoria:
         raise HTTPException(
@@ -45,7 +40,6 @@ def buscar_categoria_por_id(categoria_id: int, db: Session = Depends(get_db)):
 
 @app.put("/categorias/{categoria_id}", response_model=schemas.Categoria, status_code=status.HTTP_200_OK)
 def atualizar_categoria(categoria_id: int, categoria_update: schemas.CategoriaUpdate, db: Session = Depends(get_db)):
-    """Atualizar uma categoria"""
     categoria = db.query(models.Categoria).filter(models.Categoria.id == categoria_id).first()
     if not categoria:
         raise HTTPException(
@@ -62,7 +56,6 @@ def atualizar_categoria(categoria_id: int, categoria_update: schemas.CategoriaUp
 
 @app.delete("/categorias/{categoria_id}", status_code=status.HTTP_204_NO_CONTENT)
 def remover_categoria(categoria_id: int, db: Session = Depends(get_db)):
-    """Remover uma categoria"""
     categoria = db.query(models.Categoria).filter(models.Categoria.id == categoria_id).first()
     if not categoria:
         raise HTTPException(
@@ -70,7 +63,6 @@ def remover_categoria(categoria_id: int, db: Session = Depends(get_db)):
             detail=f"Categoria com ID {categoria_id} não encontrada"
         )
     
-    # Verificar se há produtos associados à categoria
     produtos_na_categoria = db.query(models.Produto).filter(models.Produto.categoria_id == categoria_id).count()
     if produtos_na_categoria > 0:
         raise HTTPException(
@@ -86,14 +78,11 @@ def remover_categoria(categoria_id: int, db: Session = Depends(get_db)):
 
 @app.get("/produtos/", response_model=List[schemas.Produto], status_code=status.HTTP_200_OK)
 def listar_produtos(db: Session = Depends(get_db)):
-    """Listar todos os produtos"""
     produtos = db.query(models.Produto).all()
     return produtos
 
 @app.post("/produtos/", response_model=schemas.Produto, status_code=status.HTTP_201_CREATED)
 def criar_produto(produto: schemas.ProdutoCreate, db: Session = Depends(get_db)):
-    """Criar um novo produto"""
-    # Verificar se a categoria existe
     categoria = db.query(models.Categoria).filter(models.Categoria.id == produto.categoria_id).first()
     if not categoria:
         raise HTTPException(
@@ -113,7 +102,6 @@ def criar_produto(produto: schemas.ProdutoCreate, db: Session = Depends(get_db))
 
 @app.get("/produtos/{produto_id}", response_model=schemas.Produto, status_code=status.HTTP_200_OK)
 def buscar_produto_por_id(produto_id: int, db: Session = Depends(get_db)):
-    """Buscar produto por ID"""
     produto = db.query(models.Produto).filter(models.Produto.id == produto_id).first()
     if not produto:
         raise HTTPException(
@@ -124,7 +112,6 @@ def buscar_produto_por_id(produto_id: int, db: Session = Depends(get_db)):
 
 @app.put("/produtos/{produto_id}", response_model=schemas.Produto, status_code=status.HTTP_200_OK)
 def atualizar_produto(produto_id: int, produto_update: schemas.ProdutoUpdate, db: Session = Depends(get_db)):
-    """Atualizar um produto"""
     produto = db.query(models.Produto).filter(models.Produto.id == produto_id).first()
     if not produto:
         raise HTTPException(
@@ -132,7 +119,6 @@ def atualizar_produto(produto_id: int, produto_update: schemas.ProdutoUpdate, db
             detail=f"Produto com ID {produto_id} não encontrado"
         )
     
-    # Verificar se a nova categoria existe (se fornecida)
     if produto_update.categoria_id is not None:
         categoria = db.query(models.Categoria).filter(models.Categoria.id == produto_update.categoria_id).first()
         if not categoria:
@@ -154,7 +140,6 @@ def atualizar_produto(produto_id: int, produto_update: schemas.ProdutoUpdate, db
 
 @app.delete("/produtos/{produto_id}", status_code=status.HTTP_204_NO_CONTENT)
 def remover_produto(produto_id: int, db: Session = Depends(get_db)):
-    """Remover um produto"""
     produto = db.query(models.Produto).filter(models.Produto.id == produto_id).first()
     if not produto:
         raise HTTPException(
@@ -168,8 +153,6 @@ def remover_produto(produto_id: int, db: Session = Depends(get_db)):
 
 @app.get("/produtos/categoria/{categoria_id}", response_model=List[schemas.ProdutoSimples], status_code=status.HTTP_200_OK)
 def listar_produtos_por_categoria(categoria_id: int, db: Session = Depends(get_db)):
-    """Listar produtos por categoria"""
-    # Verificar se a categoria existe
     categoria = db.query(models.Categoria).filter(models.Categoria.id == categoria_id).first()
     if not categoria:
         raise HTTPException(
@@ -183,8 +166,7 @@ def listar_produtos_por_categoria(categoria_id: int, db: Session = Depends(get_d
 # ========== ROTA RAIZ ==========
 
 @app.get("/", status_code=status.HTTP_200_OK)
-def root():
-    """Rota raiz da API"""
+def root(): 
     return {
         "message": "API REST - Loja",
         "version": "1.0.0",

@@ -1,28 +1,25 @@
-"""
-Script para inicializar o banco de dados com dados de exemplo
-Execute este arquivo para popular o banco com categorias e produtos de exemplo
-"""
+
 
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine
 import models
 
-# Criar as tabelas
+
 models.Base.metadata.create_all(bind=engine)
 
 def init_db():
-    """Inicializar o banco de dados com dados de exemplo"""
+
     db = SessionLocal()
     
     try:
-        # Verificar se já existem dados
+
         if db.query(models.Categoria).count() > 0:
             print("⚠️  O banco já possui dados. Pulando inicialização.")
             return
         
         print("🚀 Inicializando banco de dados com dados de exemplo...")
         
-        # Criar categorias
+        
         categorias_exemplo = [
             models.Categoria(nome="Eletrônicos"),
             models.Categoria(nome="Roupas"),
@@ -35,14 +32,14 @@ def init_db():
         
         db.commit()
         
-        # Buscar as categorias criadas para obter os IDs
+        
         categorias_db = db.query(models.Categoria).all()
         categoria_eletronicos = next(c for c in categorias_db if c.nome == "Eletrônicos")
         categoria_roupas = next(c for c in categorias_db if c.nome == "Roupas")
         categoria_livros = next(c for c in categorias_db if c.nome == "Livros")
         categoria_casa = next(c for c in categorias_db if c.nome == "Casa e Jardim")
         
-        # Criar produtos
+            
         produtos_exemplo = [
             models.Produto(nome="Smartphone iPhone", preco=3999.99, categoria_id=categoria_eletronicos.id),
             models.Produto(nome="Notebook Dell", preco=2500.00, categoria_id=categoria_eletronicos.id),

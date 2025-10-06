@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional, List
 
-# Schemas para Categoria
 class CategoriaBase(BaseModel):
     nome: str
 
@@ -17,7 +16,6 @@ class Categoria(CategoriaBase):
     class Config:
         from_attributes = True
 
-# Schemas para Produto
 class ProdutoBase(BaseModel):
     nome: str
     preco: float
@@ -37,8 +35,7 @@ class Produto(ProdutoBase):
     
     class Config:
         from_attributes = True
-
-# Schema para resposta de produtos por categoria
+    
 class ProdutoSimples(BaseModel):
     id: int
     nome: str
