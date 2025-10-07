@@ -1,0 +1,139 @@
+CREATE DATABASE rh;
+
+CREATE USER rhuser WITH PASSWORD 'Libert@s';
+
+GRANT ALL PRIVILEGES ON DATABASE rh TO rhuser;
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO rhuser;
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO rhuser;
+ALTER USER rhuser CREATEDB CREATEROLE;
+
+CREATE TABLE departamentos (
+  id_departamento SERIAL PRIMARY KEY, 
+  nome_departamento VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE cargos (
+  id_cargo VARCHAR(20) PRIMARY KEY,
+  nome_cargo VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE funcionarios (
+  id_funcionario SERIAL PRIMARY KEY, 
+  nome VARCHAR(50) NOT NULL,
+  sobrenome VARCHAR(50) NOT NULL,
+  data_nascimento DATE,
+  id_cargo VARCHAR(20),
+  id_departamento INT,
+  salario DECIMAL(10,2)
+);
+
+CREATE TABLE treinamentos (
+  id_treinamento SERIAL PRIMARY KEY, 
+  nome_treinamento VARCHAR(100) NOT NULL,
+  data_inicio DATE,
+  data_fim DATE,
+  carga_horaria INT,
+  trei_local VARCHAR(100),
+  ministrante VARCHAR(100),
+  id_funcionario INT
+);
+
+ALTER TABLE funcionarios
+ADD CONSTRAINT fk_funcionarios_cargos
+FOREIGN KEY (id_cargo)
+REFERENCES cargos(id_cargo)
+ON UPDATE NO ACTION
+ON DELETE RESTRICT;
+
+ALTER TABLE funcionarios
+ADD CONSTRAINT fk_funcionarios_departamentos
+FOREIGN KEY (id_departamento)
+REFERENCES departamentos(id_departamento)
+ON UPDATE NO ACTION
+ON DELETE RESTRICT;
+
+ALTER TABLE treinamentos
+ADD CONSTRAINT fk_treinamentos_funcionarios
+FOREIGN KEY (id_funcionario)
+REFERENCES funcionarios(id_funcionario)
+ON UPDATE NO ACTION
+ON DELETE RESTRICT;
+
+INSERT INTO treinamentos (nome_treinamento, data_inicio, data_fim, carga_horaria, trei_local, ministrante, id_funcionario)
+VALUES
+  ('Introdução ao SQL', '2025-07-01', '2025-07-05', 20, 'Sala de treinamento', 'João Silva', 1),
+  ('Gestão de Projetos', '2025-08-15', '2025-08-20', 30, 'Auditório', 'Maria Santos', 2),
+  ('Desenvolvimento Web', '2025-09-10', '2025-09-25', 40, 'Laboratório', 'Pedro Almeida', 3);
+
+INSERT INTO funcionarios (nome, sobrenome, data_nascimento, id_cargo, id_departamento, salario)
+VALUES
+  ('Gabriel', 'Ferrarez', '1999-05-12', 'ANALISTA', 1, 4500.00),
+  ('Ana', 'Silva', '1995-03-20', 'GERENTE', 2, 5200.00);
+
+INSERT INTO treinamentos (nome_treinamento, data_inicio, data_fim, carga_horaria, trei_local, ministrante, id_funcionario)
+VALUES
+  ('Curso Avançado de SQL', '2025-12-01', '2025-12-05', 25, 'Sala 1', 'Professor X', 1),
+  ('Gestão Ágil de Projetos', '2025-11-15', '2025-11-20', 20, 'Sala 2', 'Professor Y', 2);
+
+select * from cargos c 
+
+select * from departamentos d 
+
+select * from funcionarios f 	
+
+select * from treinamentos t 
+
+SELECT f.nome, f.sobrenome, c.nome_cargo, d.nome_departamento, f.salario
+FROM funcionarios f
+JOIN cargos c ON f.id_cargo = c.id_cargo
+JOIN departamentos d ON f.id_departamento = d.id_departamento;
+
+SELECT * 
+FROM funcionarios
+WHERE id_funcionario IN (1, 3, (SELECT id_funcionario FROM funcionarios WHERE nome = 'Gabriel' AND sobrenome = 'Ferrarez'));
+
+DELETE FROM funcionarios
+WHERE nome = 'Gabriel' AND sobrenome = 'Ferrarez';
+
+SELECT MAX(salario) AS maior_salario, MIN(salario) AS menor_salario
+FROM funcionarios;
+
+SELECT nome || ' ' || sobrenome AS nome_completo, salario
+FROM funcionarios;
+
+SELECT f.nome, f.sobrenome
+FROM funcionarios f
+JOIN departamentos d ON f.id_departamento = d.id_departamento
+WHERE d.nome_departamento = 'Tecnologia da Informação';
+
+SELECT AVG(salario) AS media_salarial
+FROM funcionarios;
+
+SELECT (DATE '2025-12-25' - CURRENT_DATE) AS dias_ate_natal;
+
+CREATE VIEW vw_funcionarios_info AS
+SELECT f.nome, f.sobrenome, c.nome_cargo, d.nome_departamento, f.salario
+FROM funcionarios f
+JOIN cargos c ON f.id_cargo = c.id_cargo
+JOIN departamentos d ON f.id_departamento = d.id_departamento;
+
+CREATE OR REPLACE FUNCTION calcular_bonus(salario DECIMAL)
+RETURNS DECIMAL AS $$
+BEGIN
+  RETURN salario * 0.10;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Teste:
+SELECT nome, sobrenome, calcular_bonus(salario) AS bonus
+FROM funcionarios;
+
+
+
+
+
+
+
+
