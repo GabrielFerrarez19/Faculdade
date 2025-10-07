@@ -131,9 +131,3 @@ SELECT nome, sobrenome, calcular_bonus(salario) AS bonus
 FROM funcionarios;
 
 
-
-
-
-
-
-
