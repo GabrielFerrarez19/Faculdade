@@ -1,3 +1,32 @@
+listar();
+
+async function novo() {
+  document.getElementById("formulario").style.display = "block";
+  document.getElementById("conteudo").style.display = "none";
+  document.getElementById("nome").value = "";
+  document.getElementById("telefone").value = "";
+}
+async function salvar() {
+  document.getElementById("conteudo").innerHTML = "aguarde...";
+  const request = {
+    nome: document.getElementById("nome").value,
+    telefone: document.getElementById("telefone").value,
+  };
+  const resp = await fetch("/pessoa", {
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(request),
+  });
+  if (!resp.ok) {
+    console.log("erro " + resp.status);
+  }
+  const retorno = await resp.text();
+  document.getElementById("conteudo").innerHTML = retorno;
+  document.getElementById("formulario").style.display = "none";
+  document.getElementById("conteudo").style.display = "block";
+  listar();
+}
+
 async function listar() {
   const conteudo = document.getElementById("conteudo");
   conteudo.innerHTML = "aguarde...";
@@ -26,27 +55,6 @@ async function listar() {
 
   document.getElementById("conteudo").innerHTML = tabela;
 }
-async function consultar() {
-  document.getElementById("conteudo").innerHTML = "aguarde...";
-
-  const resp = await fetch("/pessoa/222", {
-    method: "GET",
-    headers: {
-      "Content-type": "apllication/json",
-    },
-  });
-
-  if (!resp.ok) {
-    console.log("erro " + resp.status);
-  }
-
-  //se fosse json, converte a resposta para json
-  //const dados = await resp.json();
-  const retorno = await resp.text();
-
-  document.getElementById("conteudo").innerHTML = retorno;
-}
-
 async function inserir() {
   document.getElementById("conteudo").innerHTML = "aguarde...";
 

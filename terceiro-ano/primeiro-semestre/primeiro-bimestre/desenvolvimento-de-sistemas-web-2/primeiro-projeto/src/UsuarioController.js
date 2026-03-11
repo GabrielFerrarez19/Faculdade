@@ -14,28 +14,42 @@ async function connect() {
   return connection;
 }
 
-exports.getByID = (req, res, next) => {
+exports.getByID = async (req, res, next) => {
+  const conn = await connect();
   let id = req.params.id;
-  res.status(200).send(`Rota GET! ${id}`);
+  let sql = `SELECT * FROM pessoa WHERE id = ${id}`;
+  const [rows] = await conn.query(sql);
+  res.status(200).send(rows);
 };
 
 exports.get = async (req, res, next) => {
   // res.status(200).send("Rota GET!");
   const conn = await connect();
-  const [rows] = await conn.query("SELECT * FROM pessoa");
+  const [rows] = await conn.query("SELECT * FROM pessoa ORDER BY nome");
   res.status(200).send(rows);
 };
 
-exports.post = (req, res, next) => {
-  res.status(201).send("Rota POST");
+exports.post = async (req, res, next) => {
+  const conn = await connect();
+  let { nome, telefone } = req.body;
+  let sql = `INSERT INTO pessoa (nome, telefone) VALUE ('${nome}', '${telefone}')`;
+  await conn.query(sql);
+  res.status(201).send({ message: "Usuário criado com sucesso" });
 };
 
-exports.put = (req, res, next) => {
+exports.put = async (req, res, next) => {
+  const conn = await connect();
   let id = req.params.id;
-  res.status(200).send(`Rota PUT! ${id}`);
+  let { nome, telefone } = req.body;
+  let sql = `UPDATE pessoa SET nome = '${nome}', telefone = '${telefone}' WHERE id = ${id}`;
+  await conn.query(sql);
+  res.status(200).send({ message: "Usuário atualizado com sucesso" });
 };
 
-exports.delete = (req, res, next) => {
+exports.delete = async (req, res, next) => {
+  const conn = await connect();
   let id = req.params.id;
-  res.status(204).send(`Rota DELETE! ${id}`);
+  let sql = `DELETE FROM pessoa WHERE id = ${id}`;
+  await conn.query(sql);
+  res.status(204).send({ message: "Usuário deletado com sucesso" });
 };
