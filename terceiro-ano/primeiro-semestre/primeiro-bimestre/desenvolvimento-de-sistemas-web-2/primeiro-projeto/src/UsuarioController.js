@@ -15,41 +15,72 @@ async function connect() {
 }
 
 exports.getByID = async (req, res, next) => {
-  const conn = await connect();
-  let id = req.params.id;
-  let sql = `SELECT * FROM pessoa WHERE id = ${id}`;
-  const [rows] = await conn.query(sql);
-  res.status(200).send(rows);
+  try {
+    const conn = await connect();
+    const id = req.params.id;
+    const [rows] = await conn.query(
+      "SELECT idpessoa AS id, nome, telefone, email FROM pessoa WHERE idpessoa = ?",
+      [id]
+    );
+    res.status(200).send(rows);
+  } catch (err) {
+    console.error("Erro ao buscar pessoa:", err);
+    res.status(500).send({ message: "Erro ao buscar pessoa", error: err.message });
+  }
 };
 
 exports.get = async (req, res, next) => {
-  // res.status(200).send("Rota GET!");
-  const conn = await connect();
-  const [rows] = await conn.query("SELECT * FROM pessoa ORDER BY nome");
-  res.status(200).send(rows);
+  try {
+    const conn = await connect();
+    const [rows] = await conn.query(
+      "SELECT idpessoa AS id, nome, telefone, email FROM pessoa ORDER BY nome"
+    );
+    res.status(200).send(rows);
+  } catch (err) {
+    console.error("Erro ao listar pessoas:", err);
+    res.status(500).send({ message: "Erro ao listar pessoas", error: err.message });
+  }
 };
 
 exports.post = async (req, res, next) => {
-  const conn = await connect();
-  let { nome, telefone } = req.body;
-  let sql = `INSERT INTO pessoa (nome, telefone) VALUE ('${nome}', '${telefone}')`;
-  await conn.query(sql);
-  res.status(201).send({ message: "Usuário criado com sucesso" });
+  try {
+    const conn = await connect();
+    const { nome, telefone, email } = req.body;
+    await conn.query(
+      "INSERT INTO pessoa (nome, telefone, email) VALUES (?, ?, ?)",
+      [nome || null, telefone || null, email || null]
+    );
+    res.status(201).send({ message: "Usuário criado com sucesso" });
+  } catch (err) {
+    console.error("Erro ao criar pessoa:", err);
+    res.status(500).send({ message: "Erro ao criar pessoa", error: err.message });
+  }
 };
 
 exports.put = async (req, res, next) => {
-  const conn = await connect();
-  let id = req.params.id;
-  let { nome, telefone } = req.body;
-  let sql = `UPDATE pessoa SET nome = '${nome}', telefone = '${telefone}' WHERE id = ${id}`;
-  await conn.query(sql);
-  res.status(200).send({ message: "Usuário atualizado com sucesso" });
+  try {
+    const conn = await connect();
+    const id = req.params.id;
+    const { nome, telefone, email } = req.body;
+    await conn.query(
+      "UPDATE pessoa SET nome = ?, telefone = ?, email = ? WHERE idpessoa = ?",
+      [nome || null, telefone || null, email || null, id]
+    );
+    res.status(200).send({ message: "Usuário atualizado com sucesso" });
+  } catch (err) {
+    console.error("Erro ao atualizar pessoa:", err);
+    res.status(500).send({ message: "Erro ao atualizar pessoa", error: err.message });
+  }
 };
 
 exports.delete = async (req, res, next) => {
-  const conn = await connect();
-  let id = req.params.id;
-  let sql = `DELETE FROM pessoa WHERE id = ${id}`;
-  await conn.query(sql);
-  res.status(204).send({ message: "Usuário deletado com sucesso" });
+  try {
+    const conn = await connect();
+    const id = req.params.id;
+    await conn.query("DELETE FROM pessoa WHERE idpessoa = ?", [id]);
+    res.status(204).send({ message: "Usuário deletado com sucesso" });
+  } catch (err) {
+    console.error("Erro ao deletar pessoa:", err);
+    res.status(500).send({ message: "Erro ao deletar pessoa", error: err.message });
+  }
 };
