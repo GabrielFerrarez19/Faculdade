@@ -9,8 +9,10 @@ func main() {
 	var totalDesconto float32
 	var total float32
 
-	preco = 100
-	quantidade = 10
+	fmt.Print("Digite o valor:")
+	fmt.Scan(&preco)
+	fmt.Print("Digite a quantidade:")
+	fmt.Scan(&quantidade)
 
 	if quantidade >= 5 {
 		total = preco * float32(quantidade)

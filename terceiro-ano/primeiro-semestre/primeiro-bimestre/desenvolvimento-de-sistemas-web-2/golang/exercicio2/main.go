@@ -12,5 +12,11 @@ func main() {
 
 	imc = peso / (altuta * altuta)
 
+	if imc < 25 {
+		fmt.Print("Seu peso esta correto")
+	} else {
+		fmt.Println("Você esta com sobre peso")
+	}
+
 	fmt.Println("IMC: ", imc)
 }
